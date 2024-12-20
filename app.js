@@ -1,3 +1,4 @@
+const TODOS = JSON.parse(localStorage.getItem("todos")) || []
 
 const addButton = document.querySelector(".btn");
         const todoInput = document.querySelector(".inp");
@@ -23,3 +24,8 @@ const addButton = document.querySelector(".btn");
                 addButton.click();
             }
         });
+        TODOS.push(newTodo)
+        localStorage.setItem("todos", JSON.stringify(TODOS))
+        createTodo(TODOS)
+        textInputEl.value = ""
+    
